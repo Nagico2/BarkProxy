@@ -24,13 +24,11 @@ class BarkNotifier:
         self.cipher = Cipher(encryption_key)
 
     async def __aenter__(self):
-        if self.session is None:
-            self.session = aiohttp.ClientSession()
+        self.session = aiohttp.ClientSession()
         return self
 
     async def __aexit__(self, exc_type, exc_value, traceback):
-        if self.session is not None:
-            await self.session.close()
+        await self.session.close()
 
     class NotificationLevel:
         CRITICAL = "critical"
@@ -53,7 +51,7 @@ class BarkNotifier:
         url: Optional[str] = None
     ):
         if self.session is None:
-            self.session = aiohttp.ClientSession()
+            raise Exception("Session not started")
         data = {
             "title": title,
             "body": body,

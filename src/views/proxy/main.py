@@ -76,7 +76,8 @@ async def notify_app(request):
     }
 
     logger.debug(f"Sending notification: {args}")
-    await bark.send(**args)
+    async with bark:
+        await bark.send(**args)
 
     return success
 
@@ -112,6 +113,7 @@ async def notify_sms(request):
 
 
     logger.debug(f"Sending notification: {args}")
-    await bark.send(**args)
+    async with bark:
+        await bark.send(**args)
 
     return success
