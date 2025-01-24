@@ -4,6 +4,9 @@ FROM python:3.12-slim
 # Set the working directory in the container
 WORKDIR /app
 
+# Change mirror
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources
+
 # Download the curl
 RUN apt-get update && apt-get install -y curl --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
