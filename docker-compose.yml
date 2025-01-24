@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8082:8000"
+    volumes:
+      - "./logs:/app/logs"
+      - "./statics:/app/statics"
+      - ".env:/app/.env:ro"
