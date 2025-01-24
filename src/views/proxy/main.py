@@ -1,6 +1,6 @@
 from sanic import Sanic, Unauthorized
 from sanic.request import Request
-from sanic.response import json, text
+from sanic.response import json
 from loguru import logger
 
 
@@ -41,7 +41,7 @@ async def auth(request: Request):
 
 @app.get("/ping")
 async def ping(request):
-    return text("pong")
+    return success
 
 @app.route("/apps", methods=["GET", "POST"])
 async def upload_apps(request):
