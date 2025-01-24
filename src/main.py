@@ -1,3 +1,4 @@
+import os
 import sys
 from pathlib import Path
 
@@ -11,4 +12,4 @@ app.static('/statics', CONFIG.STATIC_DIR)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=8000, debug=CONFIG.DEBUG, workers=os.environ.get("WORKERS", 1))

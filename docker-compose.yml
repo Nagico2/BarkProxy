@@ -7,3 +7,5 @@ services:
       - "./logs:/app/logs"
       - "./statics:/app/statics"
       - ".env:/app/.env:ro"
+    environment:
+      - WORKERS=2
