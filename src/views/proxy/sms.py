@@ -21,7 +21,7 @@ def extract_name(text: str) -> str | None:
 
 
 def extract_verification_code(message: str) -> str | None:
-    match = re.search(r'\b\d{4,6}\b', message)
+    match = re.search(r'(?<!\d)\d{4,6}(?![\d\-\/])', message)
     if match:
         return match.group(0)
     return None
