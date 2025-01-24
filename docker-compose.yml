@@ -2,7 +2,7 @@ services:
   app:
     build: .
     ports:
-      - "8000:8082"
+      - "8000:8000"
     volumes:
       - "./logs:/app/logs"
       - "./statics:/app/statics"
