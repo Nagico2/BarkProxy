@@ -32,12 +32,12 @@ async def delete_icon(name: str):
 
 images_cache = []
 
-def get_image_url(image: str) -> str | None:
+async def get_image_url(image: str) -> str | None:
     global images_cache
     if image in images_cache:
         return f"{CONFIG.STATIC_URL}/{image}.png"
 
-    images_cache = get_all()
+    images_cache = await get_all()
     if image in images_cache:
         return f"{CONFIG.STATIC_URL}/{image}.png"
 

@@ -70,7 +70,7 @@ async def notify_app(request):
         "title": title,
         "body": content,
         "group": app_name,
-        "icon": apps_utils.get_image_url(app_from),
+        "icon": await apps_utils.get_image_url(app_from),
     }
 
     logger.debug(f"Sending notification: {args}")
@@ -100,7 +100,7 @@ async def notify_sms(request):
         "title": title,
         "body": content,
         "group": "SMS",
-        "icon": apps_utils.get_image_url("com.android.mms"),
+        "icon": await apps_utils.get_image_url("com.android.mms"),
     }
 
     if verification_code:
