@@ -36,9 +36,8 @@ async def log_request(request: Request):
 
 @app.middleware("request")
 async def auth(request: Request):
-    if request.path.startswith("/apps") and request.method == "POST":
-        if request.headers.get("Authorization") != CONFIG.BARK_APIKEY:
-            raise Unauthorized("Invalid api key")
+    if request.headers.get("Authorization") != CONFIG.BARK_APIKEY:
+        raise Unauthorized("Invalid api key")
 
 @app.get("/ping")
 async def ping(request):
