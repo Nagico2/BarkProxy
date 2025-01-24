@@ -35,11 +35,11 @@ images_cache = []
 async def get_image_url(image: str) -> str | None:
     global images_cache
     if image in images_cache:
-        return f"{CONFIG.STATIC_URL}/{image}.png"
+        return f"{CONFIG.STATIC_URL}/icons/{image}.png"
 
     images_cache = await get_all()
     if image in images_cache:
-        return f"{CONFIG.STATIC_URL}/{image}.png"
+        return f"{CONFIG.STATIC_URL}/icons/{image}.png"
 
     return None
 
