@@ -36,7 +36,7 @@ async def log_request(request: Request):
 
 @app.middleware("request")
 async def auth(request: Request):
-    if request.headers.get("Authorization") != CONFIG.BARK_APIKEY:
+    if request.headers.get("Authorization") != f"Bearer {CONFIG.API_AUTH_KEY}":
         raise Unauthorized("Invalid api key")
 
 @app.get("/ping")

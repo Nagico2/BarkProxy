@@ -54,7 +54,7 @@ This project aims to improve the forwarding of notifications from Android device
       - Sign: {SIGN_SECRET}
       - Headers:
         - `Content-Type: application/json`
-        - `Authorization`: {API_AUTH_KEY}
+        - `Authorization`: Bearer {API_AUTH_KEY}
 
    2. For App Notification
       - Endpoint: `http://[host]:[port]/notify/app`
@@ -74,4 +74,4 @@ This project aims to improve the forwarding of notifications from Android device
       - Sign: {SIGN_SECRET}
       - Headers:
         - `Content-Type: application/json`
-        - `Authorization`: {API_AUTH_KEY}
+        - `Authorization`: Bearer {API_AUTH_KEY}
